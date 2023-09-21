@@ -2,8 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:studyroutine/_cor/paleta.dart';
 import 'package:studyroutine/paginas/login.dart';
 
+Container createGradientContainer(Widget child) {
+  return Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        colors: [Cores.pretogradiente, Cores.azulgradiente],
+      ),
+    ),
+    child: child,
+  );
+}
+
 class Inicio extends StatelessWidget {
-  const Inicio({super.key});
+  const Inicio({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,7 +25,7 @@ class Inicio extends StatelessWidget {
           title: Text(
             'Study Routine',
             style: TextStyle(
-              color: Colors.white, 
+              color: Colors.white,
             ),
           ),
           backgroundColor: Colors.transparent,
@@ -21,7 +33,7 @@ class Inicio extends StatelessWidget {
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors:[Cores.pretogradiente, Cores.azulgradiente],
+                colors: [Cores.pretogradiente, Cores.azulgradiente],
               ),
             ),
           ),
@@ -30,12 +42,112 @@ class Inicio extends StatelessWidget {
               Icons.menu,
               color: Colors.white,
             ),
-            onPressed: (){
-            }, 
+            onPressed: () {},
           ),
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Cores.pretogradiente, Cores.azulgradiente],
+            ),
           ),
-          body: Container(
-          decoration: gradientBoxDecoration,
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 150.0),
+              child: SingleChildScrollView(
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Cores.pretogradiente, Cores.azulgradiente],
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Cores.azulgradiente,
+                        offset: Offset(0, 2),
+                        blurRadius: 4.0,
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Matéria do Dia',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 2.0,
+                        color: Cores.azulgradiente,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Nome da disciplina/conteudo',
+                            hintStyle: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Nome da disciplina/conteudo',
+                            hintStyle: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Nome da disciplina/conteudo',
+                            hintStyle: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Nome da disciplina/conteudo',
+                            hintStyle: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
         ),
         bottomNavigationBar: Container(
           padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -43,33 +155,44 @@ class Inicio extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
-                'Biblioteca',
-                style: TextStyle(
-                  color: Colors.white,
+              createGradientContainer(
+                Text(
+                  'Biblioteca',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
-              Text(
-                'Início',
-                style: TextStyle(
-                  color: Colors.white,
+              createGradientContainer(
+                Text(
+                  'Início',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
-              Text(
-                'Estudar',
-                style: TextStyle(
-                  color: Colors.white,
+              createGradientContainer(
+                Text(
+                  'Estudar',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
-              Text(
-                'Calendário',
-                style: TextStyle(
-                  color: Colors.white,
+              createGradientContainer(
+                Text(
+                  'Calendário',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
           ),
         ),
+      ),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.transparent,
       ),
     );
   }
